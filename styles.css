@@ -207,7 +207,7 @@ a {
   position: relative;
   background:
     linear-gradient(90deg, rgba(2, 8, 14, 0.84), rgba(2, 8, 14, 0.68)),
-    url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+    url("/SRC/hero\\ banner.png") center/cover no-repeat;
   padding-top: 52px;
   min-height: 760px;
   overflow: hidden;
