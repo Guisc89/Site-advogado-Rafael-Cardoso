@@ -1387,20 +1387,43 @@ a {
     width: calc(100% - 32px);
   }
 
+  .site-footer {
+    overflow: visible;
+  }
+
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 30px;
+    padding-top: 42px;
+    padding-bottom: 40px;
+  }
+
+  .footer-main > * {
+    min-width: 0;
   }
 
   .footer-brand {
     grid-column: auto;
   }
 
+  .footer-column h2 {
+    margin-bottom: 16px;
+  }
+
+  .footer-instagram {
+    max-width: 100%;
+    align-items: flex-start;
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
   .footer-bottom {
+    min-height: 0;
     align-items: flex-start;
     flex-direction: column;
     padding-top: 22px;
-    padding-bottom: 22px;
+    padding-bottom: calc(22px + env(safe-area-inset-bottom));
   }
 }
 
