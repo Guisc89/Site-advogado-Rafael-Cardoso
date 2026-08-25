@@ -37,7 +37,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  mobileBreakpoint.addEventListener('change', closeMenu);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const motionItems = document.querySelectorAll('.area-card, .step-item');
+  let revealObserver;
+
+  const setupMobileMotion = () => {
+    if (revealObserver) {
+      revealObserver.disconnect();
+    }
+
+    document.body.classList.remove('mobile-motion-ready');
+    motionItems.forEach((item) => item.classList.remove('is-visible'));
+
+    if (!mobileBreakpoint.matches || reducedMotion.matches || !('IntersectionObserver' in window)) {
+      return;
+    }
+
+    document.body.classList.add('mobile-motion-ready');
+    revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    motionItems.forEach((item) => revealObserver.observe(item));
+  };
+
+  mobileBreakpoint.addEventListener('change', () => {
+    closeMenu();
+    setupMobileMotion();
+  });
+  reducedMotion.addEventListener('change', setupMobileMotion);
+  setupMobileMotion();
 
   const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
   whatsappLinks.forEach((link) => {
