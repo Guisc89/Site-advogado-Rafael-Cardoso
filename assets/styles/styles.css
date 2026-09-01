@@ -212,7 +212,7 @@ a {
   position: relative;
   background:
     linear-gradient(90deg, rgba(2, 8, 14, 0.84), rgba(2, 8, 14, 0.68)),
-    url("./SRC/hero-banner.png") center/cover no-repeat;
+    url("../images/hero-banner.png") center/cover no-repeat;
   padding-top: 52px;
   min-height: 760px;
   overflow: hidden;
@@ -357,8 +357,8 @@ a {
   width: 25px;
   height: 25px;
   background-color: currentColor;
-  -webkit-mask: url("SRC/whatsapp.svg") center / contain no-repeat;
-  mask: url("SRC/whatsapp.svg") center / contain no-repeat;
+  -webkit-mask: url("../ícons/whatsapp.svg") center / contain no-repeat;
+  mask: url("../ícons/whatsapp.svg") center / contain no-repeat;
 }
 
 .btn-small .btn-icon {
