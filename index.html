@@ -20,15 +20,11 @@
     <div class="page-shell">
       <header class="site-header">
         <div class="container navbar">
-          <div class="brand" aria-label="Rafael Cardoso Advocacia Civil">
-            <div class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3v18M7 6h10M5 9l-3 6h6L5 9Zm14 0-3 6h6l-3-6ZM8 21h8" /></svg>
-            </div>
-            <div class="brand-text">
-              <span class="brand-name">Rafael Cardoso</span>
-              <span class="brand-subtitle">Advocacia Civil</span>
-            </div>
-          </div>
+          <a class="brand" href="#inicio" aria-label="Rafael Cardoso — voltar ao início">
+            <span class="brand-symbol">
+              <img class="brand-logo" src="SRC/logo%20rc.jpeg" alt="Rafael Cardoso Advocacia Cível" width="1600" height="746" />
+            </span>
+          </a>
 
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="#inicio">Inicio</a>
@@ -253,29 +249,63 @@
           </div>
         </section>
 
-        <section class="cta-banner" id="contato">
-          <div class="container cta-inner">
-            <div>
-              <h2>Precisa de orientação jurídica?</h2>
-              <p>Entre em contato agora mesmo e agende sua conversa inicial.</p>
+        <section class="contact" id="contato" aria-labelledby="contact-title">
+          <div class="container contact-grid">
+            <div class="contact-copy">
+              <p class="section-kicker">VAMOS CONVERSAR</p>
+              <h2 id="contact-title">O primeiro passo é ouvir você.</h2>
+              <div class="divider" aria-hidden="true"></div>
+              <p>Conte brevemente o que você precisa e deixe seus dados para que possamos entrar em contato.</p>
+              <div class="contact-detail">
+                <span class="contact-symbol" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5 5 16.2a8.5 8.5 0 1 1 15.5-4.7Z"/><path d="M8 10h8M8 13h5"/></svg>
+                </span>
+                <div><strong>Atendimento próximo, onde você estiver.</strong><p>Presencial ou online, com hora marcada.</p></div>
+              </div>
             </div>
-            <a class="btn btn-primary" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">
-              <span class="btn-icon whatsapp-icon" aria-hidden="true"></span>
-              Falar com Rafael Cardoso
-            </a>
+
+            <!-- Configure data-endpoint com a URL do serviço que receberá o POST em JSON. -->
+            <form class="contact-form" data-endpoint="" method="post" aria-labelledby="contact-form-title">
+              <h3 id="contact-form-title">Como posso ajudar?</h3>
+              <p class="form-intro">Todos os campos são obrigatórios.</p>
+              <div class="form-fields">
+                <div class="form-field form-field-wide">
+                  <label for="contact-name">Nome</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Seu nome completo" maxlength="120" required aria-describedby="name-error" />
+                  <span class="field-error" id="name-error"></span>
+                </div>
+                <div class="form-field">
+                  <label for="contact-phone">Telefone</label>
+                  <input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(85) 99999-9999" maxlength="25" required aria-describedby="phone-hint phone-error" />
+                  <span class="field-hint" id="phone-hint">Inclua o DDD ou código do país.</span>
+                  <span class="field-error" id="phone-error"></span>
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">E-mail</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="voce@exemplo.com" maxlength="254" required aria-describedby="email-error" />
+                  <span class="field-error" id="email-error"></span>
+                </div>
+                <div class="form-field form-field-wide">
+                  <label for="contact-message">Mensagem</label>
+                  <textarea id="contact-message" name="message" rows="5" placeholder="Conte brevemente como posso ajudar você." maxlength="3000" required aria-describedby="message-error"></textarea>
+                  <span class="field-error" id="message-error"></span>
+                </div>
+              </div>
+              <p class="form-note">Para este primeiro contato, basta um breve resumo. Evite incluir documentos ou dados sensíveis.</p>
+              <button class="btn btn-primary contact-submit" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+              <p class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+              <noscript><p class="form-note">Ative o JavaScript para utilizar este formulário.</p><style>.contact-submit { display: none; }</style></noscript>
+            </form>
           </div>
         </section>
+
       </main>
 
       <footer class="site-footer">
         <div class="container footer-main">
           <div class="footer-brand">
             <a class="footer-logo" href="#inicio" aria-label="Rafael Cardoso Advocacia Civil — voltar ao início">
-              <span class="footer-logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M7 6h10M5 9l-3 6h6L5 9Zm14 0-3 6h6l-3-6ZM8 21h8" /></svg></span>
-              <span>
-                <strong>Rafael Cardoso</strong>
-                <small>Advocacia Civil</small>
-              </span>
+              <img class="footer-logo-image" src="SRC/logo%20rc.jpeg" alt="Rafael Cardoso Advocacia Cível" width="1600" height="746" loading="lazy" />
             </a>
             <p>
               Estratégia, clareza e atendimento próximo para proteger seus direitos
