@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
   </head>
   <body>
     <div class="page-shell">
@@ -26,17 +26,33 @@
             </span>
           </a>
 
-          <nav class="main-nav" aria-label="Navegação principal">
+          <nav class="main-nav" id="main-navigation" aria-label="Navegação principal">
             <a href="#inicio">Inicio</a>
             <a href="#sobre">Sobre</a>
             <a href="#areas">Áreas de Atuação</a>
             <a href="#contato">Contato</a>
+            <a class="mobile-nav-cta" href="https://wa.me/558596500246" target="_blank" rel="noreferrer">
+              <span class="btn-icon whatsapp-icon" aria-hidden="true"></span>
+              Fale no WhatsApp
+            </a>
           </nav>
 
-          <a class="btn btn-primary btn-small" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">
+          <a class="btn btn-primary btn-small desktop-header-cta" href="https://wa.me/558596500246" target="_blank" rel="noreferrer">
             <span class="btn-icon whatsapp-icon" aria-hidden="true"></span>
             Fale no WhatsApp
           </a>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+            aria-label="Abrir menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </header>
 
@@ -57,7 +73,7 @@
 
               <div class="hero-actions">
                 <a class="btn btn-primary" href="#contato">Agendar Atendimento</a>
-                <a class="btn btn-secondary" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">
+                <a class="btn btn-secondary" href="https://wa.me/558596500246" target="_blank" rel="noreferrer">
                   <span class="btn-icon whatsapp-icon" aria-hidden="true"></span>
                   Fale no WhatsApp
                 </a>
@@ -94,7 +110,7 @@
           <div class="container about-grid">
             <div class="about-photo">
               <img
-                src="SRC/foto%20rafael%20advogado.jpeg"
+                src="./assets/images/foto%20rafael%20advogado.jpeg"
                 alt="Advogado em escritório"
               />
               <div class="signature">Rafael Cardoso</div>
@@ -263,7 +279,6 @@
                 <div><strong>Atendimento próximo, onde você estiver.</strong><p>Presencial ou online, com hora marcada.</p></div>
               </div>
             </div>
-
             <!-- Configure data-endpoint com a URL do serviço que receberá o POST em JSON. -->
             <form class="contact-form" data-endpoint="" method="post" aria-labelledby="contact-form-title">
               <h3 id="contact-form-title">Como posso ajudar?</h3>
@@ -327,9 +342,19 @@
           <div class="footer-column footer-contact">
             <h2>Vamos conversar?</h2>
             <p>Atendimento presencial e online, com hora marcada.</p>
-            <a class="footer-whatsapp" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">
-              <span class="btn-icon whatsapp-icon" aria-hidden="true"></span>
-              Falar pelo WhatsApp
+            <a
+              class="footer-instagram"
+              href="https://www.instagram.com/rafaelcardoso_adv/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Conheça meu trabalho no Instagram"
+            >
+              <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle class="instagram-dot" cx="17.4" cy="6.7" r="1" />
+              </svg>
+              Conheça meu trabalho no Instagram
             </a>
           </div>
         </div>
@@ -341,6 +366,6 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
