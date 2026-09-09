@@ -572,7 +572,6 @@ a {
   grid-template-rows: auto auto;
   column-gap: 14px;
   align-items: center;
-  cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
@@ -617,8 +616,8 @@ a {
   color: #f9df9a;
 }
 
-.area-card:hover a,
-.area-card:focus-within a {
+.area-card:hover .area-more,
+.area-card:focus-within .area-more {
   color: #f7d488;
 }
 
@@ -669,17 +668,196 @@ a {
   line-height: 1.45;
 }
 
-.area-card a {
+.area-card .area-more {
   position: relative;
   z-index: 1;
   grid-column: 3;
   grid-row: 1 / 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   margin: 0 0 0 6px;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
   color: var(--gold);
-  text-decoration: none;
+  font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
   transition: color 0.2s ease;
+}
+
+.area-card .area-more:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+body.dialog-open {
+  overflow: hidden;
+}
+
+.area-dialog {
+  width: min(620px, calc(100% - 40px));
+  max-height: min(80vh, 650px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  border: 1px solid rgba(212, 169, 93, 0.5);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(212, 169, 93, 0.12), transparent 38%),
+    linear-gradient(145deg, #10222f, #07151f 72%);
+  color: var(--text);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.52), 0 0 32px rgba(212, 169, 93, 0.12);
+}
+
+.area-dialog[open] {
+  animation: area-dialog-in 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.area-dialog::backdrop {
+  background: rgba(1, 8, 13, 0.8);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  animation: area-backdrop-in 0.2s ease-out both;
+}
+
+.area-dialog.is-closing {
+  animation: area-dialog-out 0.18s ease-in both;
+}
+
+.area-dialog.is-closing::backdrop {
+  animation: area-backdrop-out 0.18s ease-in both;
+}
+
+.area-dialog-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  padding: 34px 38px 38px;
+}
+
+.area-dialog-heading {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.area-dialog-kicker {
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.area-dialog-close {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(232, 214, 164, 0.5);
+  border-radius: 50%;
+  background: rgba(212, 169, 93, 0.08);
+  color: var(--gold-soft);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.area-dialog-close span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.area-dialog-close:hover {
+  transform: rotate(6deg) scale(1.04);
+  border-color: var(--gold-soft);
+  background: rgba(212, 169, 93, 0.15);
+}
+
+.area-dialog-close:focus-visible {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+.area-dialog h2 {
+  flex: 0 0 auto;
+  max-width: 500px;
+  color: #f6f0e7;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+.area-dialog-divider {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 2px;
+  margin: 20px 0 22px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.area-dialog-panel > p:last-child {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 6px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  scrollbar-color: rgba(212, 169, 93, 0.5) transparent;
+  scrollbar-width: thin;
+}
+
+@keyframes area-dialog-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.975); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes area-dialog-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(10px) scale(0.985); }
+}
+
+@keyframes area-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes area-backdrop-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .area-dialog[open],
+  .area-dialog::backdrop,
+  .area-dialog.is-closing,
+  .area-dialog.is-closing::backdrop {
+    animation: none;
+  }
+
+  .area-dialog-close {
+    transition: none;
+  }
 }
 
 .process {
@@ -1310,6 +1488,34 @@ a {
     grid-column: auto;
   }
 
+  .area-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 17px;
+  }
+
+  .area-dialog-panel {
+    padding: 24px 22px max(28px, env(safe-area-inset-bottom));
+  }
+
+  .area-dialog-heading {
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .area-dialog h2 {
+    font-size: clamp(1.75rem, 7vw, 2.15rem);
+  }
+
+  .area-dialog-divider {
+    margin: 17px 0 19px;
+  }
+
+  .area-dialog-panel > p:last-child {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
   .footer-main {
     grid-template-columns: 1fr 1fr;
     gap: 42px 32px;
@@ -1400,10 +1606,13 @@ a {
     padding: 14px;
   }
 
-  .area-card a {
+  .area-card .area-more {
     grid-column: 2;
     grid-row: 3;
-    margin: 7px 0 0;
+    min-height: 44px;
+    justify-self: start;
+    margin: 4px 0 -7px;
+    padding-right: 8px;
   }
 
   .site-footer::before {

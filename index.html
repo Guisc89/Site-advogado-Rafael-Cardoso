@@ -166,39 +166,99 @@
                 <div class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M7 6h10M5 9l-3 6h6L5 9Zm14 0-3 6h6l-3-6ZM8 21h8" /></svg></div>
                 <h3>Direito de Família e Sucessões</h3>
                 <p>Divórcio, guarda, pensão e partilha de bens.</p>
-                <a href="#contato">Saiba mais <span>→</span></a>
+                <button class="area-more" type="button" data-area-dialog="area-dialog-familia" aria-haspopup="dialog" aria-controls="area-dialog-familia">Saiba mais <span aria-hidden="true">→</span></button>
               </article>
 
               <article class="area-card">
                 <div class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.2c0 4.6 3.1 8.2 7.5 9.8 4.4-1.6 7.5-5.2 7.5-9.8V6L12 3Z" /><path d="m8.5 12 2.2 2.2 4.8-5" /></svg></div>
                 <h3>Direito do Consumidor</h3>
                 <p>Defesa dos seus direitos, cobranças e relações de consumo.</p>
-                <a href="#contato">Saiba mais <span>→</span></a>
+                <button class="area-more" type="button" data-area-dialog="area-dialog-consumidor" aria-haspopup="dialog" aria-controls="area-dialog-consumidor">Saiba mais <span aria-hidden="true">→</span></button>
               </article>
 
               <article class="area-card">
                 <div class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3V21H6V3.5Z" /><path d="M15 3.5v3h3M9 11h6M9 15h6" /></svg></div>
                 <h3>Direito Cível</h3>
                 <p>Contratos, responsabilidade civil e conflitos patrimoniais.</p>
-                <a href="#contato">Saiba mais <span>→</span></a>
+                <button class="area-more" type="button" data-area-dialog="area-dialog-civel" aria-haspopup="dialog" aria-controls="area-dialog-civel">Saiba mais <span aria-hidden="true">→</span></button>
               </article>
 
               <article class="area-card">
                 <div class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 10h2M14 10h2M8 14h2M14 14h2M10 21v-3h4v3M2 21h20" /></svg></div>
                 <h3>Direito Empresarial</h3>
                 <p>Constituição, contratos, sociedades e proteção legal.</p>
-                <a href="#contato">Saiba mais <span>→</span></a>
+                <button class="area-more" type="button" data-area-dialog="area-dialog-empresarial" aria-haspopup="dialog" aria-controls="area-dialog-empresarial">Saiba mais <span aria-hidden="true">→</span></button>
               </article>
 
               <article class="area-card">
                 <div class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7v10M7 12h10" /></svg></div>
                 <h3>Outras Áreas</h3>
                 <p>Direito trabalhista, previdenciário e administrativo.</p>
-                <a href="#contato">Saiba mais <span>→</span></a>
+                <button class="area-more" type="button" data-area-dialog="area-dialog-outras" aria-haspopup="dialog" aria-controls="area-dialog-outras">Saiba mais <span aria-hidden="true">→</span></button>
               </article>
             </div>
           </div>
         </section>
+
+        <dialog class="area-dialog" id="area-dialog-familia" aria-labelledby="area-dialog-familia-title" aria-describedby="area-dialog-familia-description">
+          <div class="area-dialog-panel">
+            <div class="area-dialog-heading">
+              <p class="area-dialog-kicker">Área de atuação</p>
+              <button class="area-dialog-close" type="button" data-dialog-close aria-label="Fechar detalhes sobre Direito de Família e Sucessões"><span aria-hidden="true">×</span></button>
+            </div>
+            <h2 id="area-dialog-familia-title">Direito de Família e Sucessões</h2>
+            <div class="area-dialog-divider" aria-hidden="true"></div>
+            <p id="area-dialog-familia-description">Cuidamos das relações familiares e da proteção do patrimônio familiar. Atuamos em divórcios, guarda de filhos, pensão alimentícia, partilha de bens e processos de inventário, garantindo que seus direitos sejam respeitados com sensibilidade e segurança jurídica.</p>
+          </div>
+        </dialog>
+
+        <dialog class="area-dialog" id="area-dialog-consumidor" aria-labelledby="area-dialog-consumidor-title" aria-describedby="area-dialog-consumidor-description">
+          <div class="area-dialog-panel">
+            <div class="area-dialog-heading">
+              <p class="area-dialog-kicker">Área de atuação</p>
+              <button class="area-dialog-close" type="button" data-dialog-close aria-label="Fechar detalhes sobre Direito do Consumidor"><span aria-hidden="true">×</span></button>
+            </div>
+            <h2 id="area-dialog-consumidor-title">Direito do Consumidor</h2>
+            <div class="area-dialog-divider" aria-hidden="true"></div>
+            <p id="area-dialog-consumidor-description">Defendemos você contra abusos e irregularidades nas relações de consumo. Seja em cobranças indevidas, problemas com produtos ou serviços, ou descumprimento contratual por parte de fornecedores, estamos prontos para fazer valer seus direitos previstos no Código de Defesa do Consumidor.</p>
+          </div>
+        </dialog>
+
+        <dialog class="area-dialog" id="area-dialog-civel" aria-labelledby="area-dialog-civel-title" aria-describedby="area-dialog-civel-description">
+          <div class="area-dialog-panel">
+            <div class="area-dialog-heading">
+              <p class="area-dialog-kicker">Área de atuação</p>
+              <button class="area-dialog-close" type="button" data-dialog-close aria-label="Fechar detalhes sobre Direito Cível"><span aria-hidden="true">×</span></button>
+            </div>
+            <h2 id="area-dialog-civel-title">Direito Cível</h2>
+            <div class="area-dialog-divider" aria-hidden="true"></div>
+            <p id="area-dialog-civel-description">Resolvemos conflitos do dia a dia envolvendo contratos, responsabilidade civil e questões patrimoniais. Se você sofreu um dano, precisa revisar um contrato ou enfrenta disputas sobre bens e obrigações, oferecemos soluções jurídicas claras e eficazes para proteger seus interesses.</p>
+          </div>
+        </dialog>
+
+        <dialog class="area-dialog" id="area-dialog-empresarial" aria-labelledby="area-dialog-empresarial-title" aria-describedby="area-dialog-empresarial-description">
+          <div class="area-dialog-panel">
+            <div class="area-dialog-heading">
+              <p class="area-dialog-kicker">Área de atuação</p>
+              <button class="area-dialog-close" type="button" data-dialog-close aria-label="Fechar detalhes sobre Direito Empresarial"><span aria-hidden="true">×</span></button>
+            </div>
+            <h2 id="area-dialog-empresarial-title">Direito Empresarial</h2>
+            <div class="area-dialog-divider" aria-hidden="true"></div>
+            <p id="area-dialog-empresarial-description">Auxiliamos empresas em sua constituição, organização societária e proteção legal. Desde a abertura do negócio até a gestão de contratos e compliance, garantimos que sua empresa opere com segurança jurídica, evitando riscos e fortalecendo sua posição no mercado.</p>
+          </div>
+        </dialog>
+
+        <dialog class="area-dialog" id="area-dialog-outras" aria-labelledby="area-dialog-outras-title" aria-describedby="area-dialog-outras-description">
+          <div class="area-dialog-panel">
+            <div class="area-dialog-heading">
+              <p class="area-dialog-kicker">Área de atuação</p>
+              <button class="area-dialog-close" type="button" data-dialog-close aria-label="Fechar detalhes sobre outras áreas"><span aria-hidden="true">×</span></button>
+            </div>
+            <h2 id="area-dialog-outras-title">Outras Áreas</h2>
+            <div class="area-dialog-divider" aria-hidden="true"></div>
+            <p id="area-dialog-outras-description">Atuamos na defesa dos direitos trabalhistas, como rescisões e verbas não pagas; na obtenção e revisão de benefícios previdenciários junto ao INSS; e em demandas administrativas contra órgãos públicos. Nosso objetivo é assegurar que seus direitos sociais e administrativos sejam plenamente garantidos.</p>
+          </div>
+        </dialog>
 
         <section class="process">
           <div class="container process-inner">

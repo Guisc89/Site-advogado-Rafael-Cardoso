@@ -79,6 +79,70 @@ document.addEventListener('DOMContentLoaded', () => {
   reducedMotion.addEventListener('change', setupMobileMotion);
   setupMobileMotion();
 
+  const areaDialogTriggers = document.querySelectorAll('[data-area-dialog]');
+  const areaDialogs = document.querySelectorAll('.area-dialog');
+  let activeAreaTrigger = null;
+  let areaDialogCloseTimer;
+
+  const closeAreaDialog = (dialog) => {
+    if (!dialog || !dialog.hasAttribute('open')) return;
+
+    const triggerToRestore = activeAreaTrigger;
+    const finishClosing = () => {
+      dialog.classList.remove('is-closing');
+      if (typeof dialog.close === 'function') {
+        dialog.close();
+      } else {
+        dialog.removeAttribute('open');
+      }
+      document.body.classList.remove('dialog-open');
+      triggerToRestore?.setAttribute('aria-expanded', 'false');
+      activeAreaTrigger = null;
+      triggerToRestore?.focus();
+    };
+
+    window.clearTimeout(areaDialogCloseTimer);
+    if (reducedMotion.matches) {
+      finishClosing();
+      return;
+    }
+
+    dialog.classList.add('is-closing');
+    areaDialogCloseTimer = window.setTimeout(finishClosing, 180);
+  };
+
+  areaDialogTriggers.forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.addEventListener('click', () => {
+      const dialog = document.getElementById(trigger.dataset.areaDialog);
+      if (!dialog) return;
+
+      activeAreaTrigger = trigger;
+      trigger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('dialog-open');
+      dialog.classList.remove('is-closing');
+
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute('open', '');
+      }
+    });
+  });
+
+  areaDialogs.forEach((dialog) => {
+    dialog.querySelector('[data-dialog-close]')?.addEventListener('click', () => closeAreaDialog(dialog));
+
+    dialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeAreaDialog(dialog);
+    });
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) closeAreaDialog(dialog);
+    });
+  });
+
   const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
   whatsappLinks.forEach((link) => {
     link.setAttribute('aria-label', 'Falar no WhatsApp');
